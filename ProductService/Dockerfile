@@ -20,7 +20,7 @@ RUN cd $APP_HOME/ProductService.Test && dotnet build
 
 FROM build AS test
 WORKDIR $APP_HOME/ProductService.Test
-RUN dotnet test --verbosity:normal
+RUN RUN dotnet test '--logger:console;verbosity=minimal' --verbosity quiet --filter FooBar
 
 FROM build AS publish
 WORKDIR $APP_HOME/ProductService
